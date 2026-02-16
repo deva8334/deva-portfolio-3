@@ -1,0 +1,1548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devanathan S - ui & ux desginer Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #581c87 50%, #0f172a 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+        
+        /* Enhanced smooth scrolling */
+        * {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(to right, #c084fc, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s;
+            text-transform: capitalize;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: #c084fc;
+        }
+
+        /* Profile Image Styles */
+        .hero-image-container {
+            margin: 2rem auto;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid #c084fc;
+            box-shadow: 0 10px 40px rgba(192, 132, 252, 0.4);
+            animation: float 3s ease-in-out infinite, glow 2s ease-in-out infinite;
+        }
+
+        .hero-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+        }
+
+        /* Figma Projects Section */
+        .figma-projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .figma-project-card {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .figma-project-card:hover {
+            border-color: rgba(168, 85, 247, 0.8);
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(147, 51, 234, 0.3);
+        }
+
+        .figma-project-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .figma-project-card:hover .figma-project-image {
+            transform: scale(1.05);
+        }
+
+        .figma-project-info {
+            padding: 1.5rem;
+        }
+
+        .figma-project-title {
+            font-size: 1.3rem;
+            color: #c084fc;
+            margin-bottom: 0.5rem;
+        }
+
+        .figma-project-description {
+            color: #d1d5db;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .figma-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #c084fc;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .figma-link:hover {
+            color: #ec4899;
+            transform: translateX(5px);
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #c084fc;
+            transition: 0.3s;
+        }
+
+        /* Sections */
+        section {
+            min-height: 100vh;
+            padding: 6rem 2rem 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        /* Hero Section */
+        .hero-content {
+            text-align: center;
+        }
+
+        .hero-subtitle {
+            color: #c084fc;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-role {
+            font-size: 2rem;
+            background: linear-gradient(to right, #c084fc, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: #d1d5db;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary {
+            background: #9333ea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #7e22ce;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid #c084fc;
+            color: #c084fc;
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: #c084fc;
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .social-links a {
+            color: #9ca3af;
+            font-size: 1.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px) scale(1.2);
+            color: #c084fc;
+            filter: drop-shadow(0 5px 15px rgba(192, 132, 252, 0.5));
+        }
+
+        /* About Section */
+        .about-card {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid rgba(168, 85, 247, 0.2);
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #d1d5db;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(147, 51, 234, 0.2), rgba(236, 72, 153, 0.2));
+            border-radius: 1rem;
+            padding: 1.5rem;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .feature-card:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .feature-card:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .feature-card:nth-child(3) {
+            animation-delay: 1s;
+        }
+
+        .feature-card:nth-child(4) {
+            animation-delay: 1.5s;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            color: #9ca3af;
+        }
+
+        /* Skills Section */
+        .skills-categories {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid rgba(168, 85, 247, 0.2);
+        }
+
+        .skill-category h3 {
+            color: #c084fc;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-item {
+            background: rgba(147, 51, 234, 0.2);
+            padding: 0.8rem 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .skill-item:hover {
+            transform: translateY(-8px) scale(1.05);
+            border-color: rgba(168, 85, 247, 0.8);
+            background: rgba(147, 51, 234, 0.4);
+            animation: glow 1.5s ease-in-out infinite;
+        }
+
+        /* Experience Section */
+        .experience-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .experience-card {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .experience-card:hover {
+            border-color: rgba(168, 85, 247, 0.8);
+            transform: translateX(15px);
+            box-shadow: -5px 5px 20px rgba(147, 51, 234, 0.3);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .experience-title {
+            flex: 1;
+        }
+
+        .experience-title h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .experience-company {
+            color: #c084fc;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .experience-location {
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+
+        .experience-date {
+            color: #9ca3af;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .experience-description {
+            color: #d1d5db;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .experience-points {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .experience-points li {
+            color: #d1d5db;
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.6;
+            opacity: 1;
+        }
+
+        .experience-points li:before {
+            content: "▹";
+            color: #c084fc;
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .project-card:hover {
+            border-color: rgba(168, 85, 247, 0.8);
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(147, 51, 234, 0.3);
+        }
+
+        .project-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-icon {
+            font-size: 1.8rem;
+            color: #c084fc;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .project-icon {
+            transform: rotate(360deg) scale(1.2);
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .project-description {
+            color: #d1d5db;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-highlights {
+            margin-bottom: 1.5rem;
+        }
+
+        .project-highlights ul {
+            list-style: none;
+        }
+
+        .project-highlights li {
+            color: #d1d5db;
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+            opacity: 1;
+        }
+
+        .project-highlights li:before {
+            content: "•";
+            color: #c084fc;
+            position: absolute;
+            left: 0;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-tag {
+            background: rgba(147, 51, 234, 0.3);
+            color: #e9d5ff;
+            padding: 0.4rem 0.8rem;
+            border-radius: 1rem;
+            font-size: 0.9rem;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .tech-tag:hover {
+            transform: scale(1.1);
+            background: rgba(147, 51, 234, 0.5);
+            box-shadow: 0 5px 15px rgba(147, 51, 234, 0.4);
+        }
+
+        /* Achievements Section */
+        .achievements-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .achievement-card {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .achievement-card:hover {
+            border-color: rgba(168, 85, 247, 0.8);
+            transform: scale(1.02);
+            box-shadow: 0 15px 35px rgba(147, 51, 234, 0.3);
+        }
+
+        .achievement-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .achievement-icon {
+            font-size: 2.5rem;
+            transition: transform 0.5s ease;
+        }
+
+        .achievement-card:hover .achievement-icon {
+            transform: rotate(360deg) scale(1.1);
+        }
+
+        .achievement-title {
+            font-size: 1.5rem;
+            color: #c084fc;
+        }
+
+        .achievement-points {
+            list-style: none;
+        }
+
+        .achievement-points li {
+            color: #d1d5db;
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.6;
+            opacity: 1;
+        }
+
+        .achievement-points li:before {
+            content: "✓";
+            color: #c084fc;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Education Section */
+        .education-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .education-card {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            display: flex;
+            gap: 1.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .education-card:hover {
+            border-color: rgba(168, 85, 247, 0.8);
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(147, 51, 234, 0.3);
+        }
+
+        .education-icon {
+            background: rgba(147, 51, 234, 0.2);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-size: 2rem;
+            height: fit-content;
+            transition: transform 0.3s ease;
+        }
+
+        .education-card:hover .education-icon {
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        .education-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-institution {
+            color: #c084fc;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-details {
+            color: #9ca3af;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+        }
+
+        .contact-description {
+            font-size: 1.1rem;
+            color: #d1d5db;
+            margin-bottom: 3rem;
+        }
+
+        .contact-card {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid rgba(168, 85, 247, 0.2);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            background: linear-gradient(135deg, rgba(147, 51, 234, 0.2), rgba(236, 72, 153, 0.2));
+            border-radius: 1rem;
+            padding: 1.5rem;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(147, 51, 234, 0.4);
+            border-color: rgba(168, 85, 247, 0.6);
+        }
+
+        .contact-icon {
+            font-size: 1.8rem;
+            color: #c084fc;
+        }
+
+        .contact-info {
+            text-align: left;
+            flex: 1;
+        }
+
+        .contact-label {
+            color: #9ca3af;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-value {
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .contact-value a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            word-break: break-word;
+        }
+
+        .contact-value a:hover {
+            color: #c084fc;
+        }
+
+        .location {
+            margin-top: 2rem;
+        }
+
+        .location-label {
+            color: #9ca3af;
+            margin-bottom: 0.5rem;
+        }
+
+        .location-value {
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(15, 23, 42, 0.8);
+            border-top: 1px solid rgba(168, 85, 247, 0.2);
+            padding: 2rem;
+            text-align: center;
+            color: #9ca3af;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            color: #c084fc;
+            font-size: 2rem;
+        }
+
+        /* Animations */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-20px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 5px rgba(168, 85, 247, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(168, 85, 247, 0.8), 0 0 30px rgba(236, 72, 153, 0.6);
+            }
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Apply animations to hero elements */
+        .hero-content > * {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .hero-subtitle {
+            animation-delay: 0.2s;
+            opacity: 0;
+        }
+
+        .hero-title {
+            animation-delay: 0.4s;
+            opacity: 0;
+        }
+
+        .hero-image-container {
+            animation-delay: 0.5s;
+            opacity: 0;
+        }
+
+        .hero-role {
+            animation-delay: 0.6s;
+            opacity: 0;
+            background-size: 200% 200%;
+            animation: fadeInUp 0.8s ease-out 0.6s forwards, gradientShift 3s ease infinite;
+        }
+
+        .hero-description {
+            animation-delay: 0.8s;
+            opacity: 0;
+        }
+
+        .hero-buttons {
+            animation-delay: 1s;
+            opacity: 0;
+        }
+
+        .social-links {
+            animation-delay: 1.2s;
+            opacity: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(15, 23, 42, 0.95);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                transform: translateY(-100%);
+                opacity: 0;
+                pointer-events: none;
+                transition: all 0.3s;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: all;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-role {
+                font-size: 1.5rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .experience-header {
+                flex-direction: column;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Devanathan S</div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" onclick="closeMenu()">Home</a></li>
+                <li><a href="#about" onclick="closeMenu()">About</a></li>
+                <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
+                <li><a href="#experience" onclick="closeMenu()">Experience</a></li>
+                <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+                <li><a href="#figma" onclick="closeMenu()">Figma</a></li>
+                <li><a href="#achievements" onclick="closeMenu()">Achievements</a></li>
+                <li><a href="#education" onclick="closeMenu()">Education</a></li>
+                <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home">
+        <div class="container">
+            <div class="hero-content">
+                <p class="hero-subtitle">Hello, I'm</p>
+                <h1 class="hero-title">Devanathan S</h1>
+                
+                <!-- Profile Image -->
+                <div class="hero-image-container">
+                    <img src="devaprofile.jpg" alt="Devanathan S" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:4rem;\'>👨‍💻</div>'">
+                </div>
+                
+                <h2 class="hero-role">UI/UX Designer | Software Developer</h2>
+                <p class="hero-description">
+                    Detail-oriented software engineer specializing in AI/ML solutions, full-stack web development, 
+                    and intuitive UI/UX design. Proficient in Python, React, Java, and cutting-edge web technologies. 
+                    Driven by a passion for creating innovative, scalable applications that solve complex real-world 
+                    challenges while delivering exceptional user experiences.
+                </p>
+                <div class="hero-buttons">
+                    <a href="contact.html" class="btn btn-primary">📧 Contact Me</a>
+                    <a href="#projects" class="btn btn-outline">View Projects</a>
+                </div>
+                <div class="social-links">
+                    <a href="tel:9360554822" title="Phone" target="_blank">📞</a>
+                    <a href="mailto:Devamersal8334@gmail.com" title="Email">📧</a>
+                    <a href="https://www.linkedin.com/in/devanathan-s-2a1790185?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" title="LinkedIn" target="_blank" rel="noopener noreferrer">💼</a>
+                    <a href="https://github.com/deva8334" title="GitHub" target="_blank" rel="noopener noreferrer">🐙</a>
+                </div>
+            </div>
+            <div class="scroll-indicator">↓</div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-card">
+                <p class="about-text">
+                    I'm an enthusiastic and detail-oriented Information Technology graduate with a strong foundation 
+                    in software development principles. My expertise spans across AI/ML, full-stack development, and 
+                    UI/UX design, allowing me to create comprehensive solutions from concept to deployment.
+                </p>
+                <p class="about-text">
+                    With proficiency in Python, React, Java, C++, and modern web technologies, I bridge the gap between 
+                    backend logic and frontend design. I'm passionate about building efficient, user-friendly applications 
+                    and eager to apply my knowledge to real-world projects. A quick learner with strong problem-solving 
+                    abilities and a collaborative mindset.
+                </p>
+                <div class="about-features">
+                    <div class="feature-card">
+                        <div class="feature-icon">💻</div>
+                        <h3>Software Development</h3>
+                        <p>Creating end-to-end web applications</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎨</div>
+                        <h3>UI/UX Design</h3>
+                        <p>Crafting beautiful, intuitive interfaces</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💡</div>
+                        <h3>Problem Solving</h3>
+                        <p>Finding innovative solutions to complex challenges</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2>Skills & Technologies</h2>
+            <div class="skills-categories">
+                <div class="skill-category">
+                    <h3>💻 Programming Languages</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">JavaScript</div>
+                        <div class="skill-item">HTML</div>
+                        <div class="skill-item">CSS</div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>🎨 Design & Development Tools</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">Figma</div>
+                        <div class="skill-item">Photoshop</div>
+                        <div class="skill-item">Premiere Pro</div>
+                        <div class="skill-item">Canvas</div>
+                        <div class="skill-item">VS Code</div>
+                        <div class="skill-item">GitHub</div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>🧠 Soft Skills</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">Problem Solving</div>
+                        <div class="skill-item">Stakeholder Management</div>
+                        <div class="skill-item">People Management</div>
+                        <div class="skill-item">Team Collaboration</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2>Work Experience</h2>
+            <div class="experience-list">
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div class="experience-title">
+                            <h3>Web Developer</h3>
+                            <p class="experience-company">Systemtronix Solutions Limited®</p>
+                            <p class="experience-location">Chennai, Tamil Nadu</p>
+                        </div>
+                        <div class="experience-date">April 2025 - May 2025</div>
+                    </div>
+                    <p class="experience-description">
+                        A technology-driven IT services company
+                    </p>
+                    <ul class="experience-points">
+                        <li>Developed a Web-based Library Management System using HTML, CSS, JavaScript, React, and Python with comprehensive modules for user login, book catalog, issue/return tracking, fine management, and admin control</li>
+                        <li>Implemented advanced search, filter, and categorization features for quick access to books and resources, improving user experience and system efficiency</li>
+                        <li>Designed a secure database system to track inventory, user activity, and overdue fines, ensuring data integrity and system reliability</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div class="experience-title">
+                            <h3>UI/UX Developer</h3>
+                            <p class="experience-company">M Squared Software and Services</p>
+                            <p class="experience-location">IT Service and Consultation Company</p>
+                        </div>
+                        <div class="experience-date">June 2021 - July 2021</div>
+                    </div>
+                    <p class="experience-description">
+                        Internship program focused on frontend development
+                    </p>
+                    <ul class="experience-points">
+                        <li>Attended a hands-on internship program focused on frontend development, gaining practical industry experience</li>
+                        <li>Learned and applied core technical skills in HTML, CSS, and JavaScript to build responsive web interfaces</li>
+                        <li>Completed multiple projects, including designing and developing webpages with modern layouts and interactive features</li>
+                        <li>Gained experience using best practices in web design, code versioning with Git, and basic debugging techniques</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-icon">🛒</span>
+                        <h3 class="project-title">Responsive E-commerce Website</h3>
+                    </div>
+                    <p class="project-description">
+                        A fully responsive e-commerce website with modern UI/UX design and comprehensive shopping cart functionality
+                    </p>
+                    <div class="project-highlights">
+                        <ul>
+                            <li>Developed fully responsive design that adapts seamlessly across all devices</li>
+                            <li>Implemented shopping cart system with real-time updates and user-friendly navigation</li>
+                            <li>Created modern UI/UX interface with intuitive layout and smooth interactions</li>
+                            <li>Integrated library management system for efficient product catalog handling</li>
+                        </ul>
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">React.js</span>
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-icon">🏥</span>
+                        <h3 class="project-title">Inpatient Length of Stay Prediction</h3>
+                    </div>
+                    <p class="project-description">
+                        Machine learning model to predict hospital inpatient stay duration for improved resource planning and efficiency (Diploma Project)
+                    </p>
+                    <div class="project-highlights">
+                        <ul>
+                            <li>Built comprehensive machine learning model using patient admission data</li>
+                            <li>Improved hospital resource planning and operational efficiency significantly</li>
+                            <li>Implemented Random Forest and Gradient Boosting algorithms for accurate predictions</li>
+                            <li>Conducted extensive data analysis and model optimization</li>
+                        </ul>
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Machine Learning</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">Random Forest</span>
+                        <span class="tech-tag">Gradient Boosting</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-icon">📚</span>
+                        <h3 class="project-title">Library Management System</h3>
+                    </div>
+                    <p class="project-description">
+                        Web-based library management system with comprehensive modules for efficient library operations
+                    </p>
+                    <div class="project-highlights">
+                        <ul>
+                            <li>Developed user login and authentication system for secure access</li>
+                            <li>Created book catalog with advanced search and filter capabilities</li>
+                            <li>Implemented issue/return tracking and fine management modules</li>
+                            <li>Built admin control panel for system management and monitoring</li>
+                        </ul>
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-icon">🚂</span>
+                        <h3 class="project-title">IRCT Redesign UI & UX</h3>
+                    </div>
+                    <p class="project-description">
+                        Redesigned user interface and user experience for IRCT website to improve usability and accessibility
+                    </p>
+                    <div class="project-highlights">
+                        <ul>
+                            <li>Transformed a cluttered booking flow into a clean, user-friendly experience</li>
+                            <li>Reduced ticket booking steps from 6 → 3 for faster navigation</li>
+                            <li>Introduced bilingual support (Tamil + English) with clear typography</li>
+                            <li>Added smart search, live booking status, and wallet integration</li>
+                        </ul>
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Figma</span>
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-icon">🚌</span>
+                        <h3 class="project-title">Chennai Bus Tracking Redesign UI & UX</h3>
+                    </div>
+                    <p class="project-description">
+                        Redesigned bus tracking app to reduce waiting time and make public transport more convenient
+                    </p>
+                    <div class="project-highlights">
+                        <ul>
+                            <li>Redesigned cluttered app into a clean, user-friendly interface</li>
+                            <li>Simplified navigation and reduced steps for bus routes</li>
+                            <li>Added bilingual support (Tamil + English) with clear typography</li>
+                            <li>Introduced real-time GPS tracking and wallet integration</li>
+                        </ul>
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Figma</span>
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Figma Projects Section -->
+    <section id="figma">
+        <div class="container">
+            <h2>Responsive E-commerce Website</h2>
+            <div class="figma-projects-grid">
+                <div class="figma-project-card">
+                    <a href="index.html#projects">
+                        <img src="projrect1.png" alt="E-commerce Design" class="figma-project-image">
+                    </a>
+                    <div class="figma-project-info">
+                        <h3 class="figma-project-title">E-commerce Website Design</h3>
+                        <p class="figma-project-description">Modern and responsive e-commerce website UI/UX design created in Figma</p>
+                        <a href="index.html#projects" class="figma-link">View Project →</a>
+                    </div>
+                </div>
+
+                <div class="figma-project-card">
+                    <a href="index.html#skills">
+                        <img src="bus project2.png" alt="Portfolio Design" class="figma-project-image">
+                    </a>
+                    <div class="figma-project-info">
+                        <h3 class="figma-project-title">Chennai Bus tracking apps</h3>
+                        <p class="figma-project-description">Creative portfolio website design showcasing skills and projects</p>
+                        <a href="index.html#skills" class="figma-link">View Project →</a>
+                    </div>
+                </div>
+
+                <div class="figma-project-card">
+                    <a href="index.html#experience">
+                        <img src="project4.png" alt="IRCT Design" class="figma-project-image">
+                    </a>
+                    <div class="figma-project-info">
+                        <h3 class="figma-project-title">IRCT</h3>
+                        <p class="figma-project-description">Intuitive mobile application UI design with focus on user experience</p>
+                        <a href="index.html#experience" class="figma-link">View Project →</a>
+                    </div>
+                </div>
+
+                <div class="figma-project-card">
+                    <a href="index.html#skills">
+                        <img src="project3.png"alt="Inpatient Length of Stay Prediction" class="figma-project-image">
+                    </a>
+                    <div class="figma-project-info">
+                        <h3 class="figma-project-title">Inpatient Length of Stay Prediction</h3>
+                        <p class="figma-project-description">Creative portfolio website design showcasing skills and projects</p>
+                        <a href="index.html#skills" class="figma-link">View Project →</a>
+                    </div>
+                </div>
+
+                <div class="figma-project-card">
+                    <a href="index.html#contact">
+                        <img src="project5.png" alt="Library management system" class="figma-project-image">
+                    </a>
+                    <div class="figma-project-info">
+                        <h3 class="figma-project-title">Library management system</h3>
+                        <p class="figma-project-description">Admin dashboard UI design with data visualization and analytics</p>
+                        <a href="index.html#contact" class="figma-link">View Project →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements">
+        <div class="container">
+            <h2>Key Achievements</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-header">
+                        <span class="achievement-icon">📄</span>
+                        <h3 class="achievement-title">Research Paper - AI Smart Stick for Visually Impaired Users</h3>
+                    </div>
+                    <ul class="achievement-points">
+                        <li>Conducted in-depth research on developing an AI-powered Smart Stick designed to assist visually impaired individuals in navigating their environment safely</li>
+                        <li>Implemented obstacle detection using ultrasonic sensors and computer vision techniques to identify objects in the user's path</li>
+                        <li>Integrated haptic feedback (vibration motors) and auditory alerts (buzzer/speaker) to notify users about nearby obstacles in real-time</li>
+                        <li>Explored the use of machine learning algorithms for object classification and improved obstacle recognition accuracy</li>
+                        <li>Evaluated the system's performance through field testing and user feedback, demonstrating significant improvements in mobility and safety</li>
+                        <li>Documented design methodology, technical architecture, and results in a comprehensive research paper aimed at advancing assistive technology solutions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="education-list">
+                <div class="education-card">
+                    <div class="education-icon">🎓</div>
+                    <div class="education-content">
+                        <h3>B.Tech in Information Technology</h3>
+                        <p class="education-institution">Agni College of Technology</p>
+                        <div class="education-details">
+                            <span>Chennai, Tamil Nadu</span>
+                            <span>•</span>
+                            <span>2022 - 2026</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="education-card">
+                    <div class="education-icon">🎓</div>
+                    <div class="education-content">
+                        <h3>Diploma in Computer Science Engineering</h3>
+                        <p class="education-institution">Government Polytechnic College</p>
+                        <div class="education-details">
+                            <span>2019 - 2021</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="education-card">
+                    <div class="education-icon">🎓</div>
+                    <div class="education-content">
+                        <h3>Higher Secondary Certificate (HSC)</h3>
+                        <p class="education-institution">Rani Seethai Achi Higher Secondary School</p>
+                        <div class="education-details">
+                            <span>2016 - 2018</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="education-card">
+                    <div class="education-icon">🎓</div>
+                    <div class="education-content">
+                        <h3>Secondary School Leaving Certificate (SSLC)</h3>
+                        <p class="education-institution">Rani Seethai Achi Higher Secondary School</p>
+                        <div class="education-details">
+                            <span>2014 - 2016</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2>Let's Work Together</h2>
+                <p class="contact-description">
+                    I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. 
+                    Feel free to reach out!
+                </p>
+                <div class="contact-card">
+                    <div class="contact-grid">
+                        <div class="contact-item">
+                            <span class="contact-icon">📞</span>
+                            <div class="contact-info">
+                                <p class="contact-label">Phone</p>
+                                <p class="contact-value"><a href="tel:9042765548">9042765548</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📧</span>
+                            <div class="contact-info">
+                                <p class="contact-label">Email</p>
+                                <p class="contact-value"><a href="mailto:Devamersal8334@gmail.com">Devamersal8334@gmail.com</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">💼</span>
+                            <div class="contact-info">
+                                <p class="contact-label">LinkedIn</p>
+                                <p class="contact-value"><a href="https://www.linkedin.com/in/devanathan-s-2a1790185?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer">linkedin.com/in/devanathan</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">🐙</span>
+                            <div class="contact-info">
+                                <p class="contact-label">GitHub</p>
+                                <p class="contact-value"><a href="https://github.com/deva8334" target="_blank" rel="noopener noreferrer">github.com/deva8334</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="location">
+                        <p class="location-label">Location</p>
+                        <p class="location-value">Chennai, Tamil Nadu, India</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Devanathan S. Software Engineer | UI/UX Developer</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Built with passion and dedication</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.remove('active');
+        }
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+
+        // Observe all cards
+        document.querySelectorAll('.project-card, .experience-card, .achievement-card, .education-card, .skill-category').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Add scroll indicator hide on scroll
+        window.addEventListener('scroll', () => {
+            const scrollIndicator = document.querySelector('.scroll-indicator');
+            if (scrollIndicator) {
+                if (window.scrollY > 100) {
+                    scrollIndicator.style.opacity = '0';
+                } else {
+                    scrollIndicator.style.opacity = '1';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
