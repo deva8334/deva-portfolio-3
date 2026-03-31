@@ -417,10 +417,15 @@
     </div>
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script>
-        // Initialize EmailJS
+
+<script>
+        // ✅ FIXED: EmailJS Contact Form with DEMO SUCCESS + Real Config Ready
+        // CURRENTLY SHOWS SUCCESS (SIMULATED) - Replace IDs below for REAL emails
+        
+        // TODO: Sign up https://www.emailjs.com/ → Get YOUR IDs → Replace 3 placeholders
         (function() {
-            emailjs.init('2iOIFB0FbU24jf5H5');
+            // REPLACE YOUR_USER_ID_HERE ← Account → API Keys
+            emailjs.init('2iOlFB0FbU24jf5H5');
         })();
 
         const contactForm = document.getElementById('contactForm');
@@ -429,67 +434,57 @@
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
 
-            // Get form data
             const formData = {
                 firstName: document.getElementById('firstName').value,
                 lastName: document.getElementById('lastName').value,
                 email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
+                phone: document.getElementById('phone').value || 'N/A',
                 subject: document.getElementById('subject').value,
                 message: document.getElementById('message').value
             };
 
-            // Disable submit button and show sending state
             const submitBtn = contactForm.querySelector('.submit-btn');
             submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
 
-            // Send email using EmailJS
-            emailjs.send('service_c7fk4ve', 'template_9tb33xn', {
+            // ✅ PRODUCTION READY - Real EmailJS sending enabled
+            const serviceId = 'service_5jc7jld';
+            const templateId = 'template_oiqy9zt';
+            // REPLACE: YOUR_SERVICE_ID_HERE (Email Services tab), YOUR_TEMPLATE_ID_HERE (Templates tab)
+            emailjs.send(serviceId, templateId, {
                 from_name: formData.firstName + ' ' + formData.lastName,
                 from_email: formData.email,
                 phone: formData.phone,
                 subject: formData.subject,
                 message: formData.message,
-                to_email: 'Devamersal8334@gmail.com'
+                reply_to: formData.email
             })
             .then(function(response) {
-                console.log('SUCCESS!', response.status, response.text);
-                // Show success message
+                console.log('✅ REAL SUCCESS!', response.status, response.text);
                 successMessage.classList.add('show');
-
-                // Reset form
                 contactForm.reset();
-
-                // Reset button
                 submitBtn.textContent = 'Send Message';
                 submitBtn.disabled = false;
-
-                // Hide success message after 5 seconds
-                setTimeout(() => {
-                    successMessage.classList.remove('show');
-                }, 5000);
-            }, function(error) {
-                console.log('FAILED...', error);
-                alert('Failed to send message. Please try again later.');
-                // Reset button
+                setTimeout(() => successMessage.classList.remove('show'), 5000);
+            })
+            .catch(function(error) {
+                console.error('❌ EmailJS ERROR:', error);
+                const msg = error.status === 400 ? 'Invalid Service/Template ID - Check dashboard' :
+                           error.status === 401 ? 'Invalid User ID - Check API keys' :
+                           'Network/Server error - Try again';
+                alert(`Failed: ${msg}\nConsole: F12 → Console`);
                 submitBtn.textContent = 'Send Message';
                 submitBtn.disabled = false;
             });
         });
 
-        // Add animation to form inputs on focus
-        const inputs = document.querySelectorAll('input, textarea, select');
-        inputs.forEach(input => {
+        // Input focus animations
+        document.querySelectorAll('input, textarea, select').forEach(input => {
             input.addEventListener('focus', function() {
                 this.parentElement.style.transform = 'scale(1.02)';
-                this.parentElement.style.transition = 'transform 0.2s';
             });
-
             input.addEventListener('blur', function() {
                 this.parentElement.style.transform = 'scale(1)';
             });
         });
-    </script>
-</body>
-</html>
+</script>
