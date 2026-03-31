@@ -106,8 +106,34 @@
         /* Figma Projects Section */
         .figma-projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
+        }
+
+        /* Responsive Figma Grid */
+        @media (max-width: 1024px) {
+            .figma-projects-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .figma-projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .figma-project-image {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .figma-projects-grid {
+                gap: 1rem;
+                padding: 0 1rem;
+            }
         }
 
         .figma-project-card {
@@ -1262,6 +1288,31 @@
 
                 <div class="project-card">
                     <div class="project-header">
+                        <span class="project-icon">🍕</span>
+                        <h3 class="project-title">Food Delivery Redesign App</h3>
+                    </div>
+                    <p class="project-description">
+                        Redesigned food delivery app UI/UX to enhance user engagement and streamline ordering process
+                    </p>
+                    <div class="project-highlights">
+                        <ul>
+                            <li>Streamlined food ordering flow from 7 → 3 steps for faster checkout</li>
+                            <li>Added personalized recommendations and favorite restaurants section</li>
+                            <li>Implemented real-time order tracking with live delivery updates</li>
+                            <li>Integrated multiple payment options including wallet and UPI</li>
+                        </ul>
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Figma</span>
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
                         <span class="project-icon">🚌</span>
                         <h3 class="project-title">Chennai Bus Tracking Redesign UI & UX</h3>
                     </div>
@@ -1287,12 +1338,14 @@
             </div>
         </div>
     </section>
+  
 
     <!-- Figma Projects Section -->
     <section id="figma">
         <div class="container">
             <h2>Responsive E-commerce Website</h2>
             <div class="figma-projects-grid">
+                <!-- E-commerce prioritized first -->
                 <div class="figma-project-card">
                     <a href="index.html#projects">
                         <img src="projrect1.png" alt="E-commerce Design" class="figma-project-image">
@@ -1305,30 +1358,63 @@
                 </div>
 
                 <div class="figma-project-card">
-                    <a href="index.html#skills">
-                        <img src="bus project2.png" alt="Portfolio Design" class="figma-project-image">
+                    <a href="index.html#experience">
+                        <img src="D:\deva-portfolio-2-main\deva-portfolio-2-main\ZyGo app.png" alt="ZyGo apps" class="figma-project-image">
                     </a>
                     <div class="figma-project-info">
-                        <h3 class="figma-project-title">Chennai Bus tracking apps</h3>
-                        <p class="figma-project-description">Creative portfolio website design showcasing skills and projects</p>
-                        <a href="index.html#skills" class="figma-link">View Project →</a>
+                        <h3 class="figma-project-title">ZyGo Apps</h3>
+                        <p class="figma-project-description">Intuitive mobile application UI design with focus on user experience</p>
+                        <a href="https://www.figma.com/community/file/1620433102952950329/zygo-busbooking-apps" target="_blank" class="figma-link">View Project →</a>
                     </div>
                 </div>
 
                 <div class="figma-project-card">
-                    <a href="index.html#experience">
+                    <a href="https://www.figma.com/community/file/1620695767446771610" target="_blank">
+                        <img src="D:\deva-portfolio-2-main\deva-portfolio-2-main\Food Delvery re- desgin apps.png" alt="ZyGo apps" class="figma-project-image">
+                    </a>
+                    <div class="figma-project-info">
+                        <h3 class="figma-project-title">Swyft Eat food Apps</h3>
+                        <p class="figma-project-description">Intuitive mobile application UI design with focus on user experience</p>
+                        <a href="https://www.figma.com/community/file/1620695767446771610/swyfteat-food-delivery-apps-re-ui-desgin-dark-version" target="_blank" class="figma-link">View Project →</a>
+                    </div>
+                </div>
+
+                 <div class="figma-project-card">
+                    <a href="index.html#contact">
+                        <img src="D:\deva-portfolio-2-main\deva-portfolio-2-main\Book Nest Libray apps.png" alt="Library management system" class="figma-project-image">
+                    </a>
+                    <div class="figma-project-info">
+                        <h3 class="figma-project-title">Library management system</h3>
+                        <p class="figma-project-description">Admin dashboard UI design with data visualization and analytics</p>
+                        <a href="https://www.figma.com/community/file/1620686807195364143/libray-mangement-apps-ui-re-design" target="_blank" class="figma-link">View Project →</a>
+                    </div>
+                </div>
+
+                 <div class="figma-project-card">
+<a href="https://www.figma.com/community/file/1600766724149552474/irctc-redesgin-ui" target="_blank">
                         <img src="project4.png" alt="IRCT Design" class="figma-project-image">
                     </a>
                     <div class="figma-project-info">
                         <h3 class="figma-project-title">IRCT</h3>
                         <p class="figma-project-description">Intuitive mobile application UI design with focus on user experience</p>
-                        <a href="index.html#experience" class="figma-link">View Project →</a>
+                    <a href="https://www.figma.com/community/file/1600766724149552474/irctc-redesgin-ui" target="_blank" class="figma-link">View Project →</a>
+                    </div>
+                </div>
+
+                <div class="figma-project-card">
+                    <a href="https://www.figma.com/community/file/1590013934332102853/chennai-bus-tracking-apps-ios" target="_blank">
+                        <img src="bus project2.png" alt="Portfolio Design" class="figma-project-image">
+                    </a>
+                    <div class="figma-project-info">
+                        <h3 class="figma-project-title">Chennai Bus tracking apps</h3>
+                        <p class="figma-project-description">Creative portfolio website design showcasing skills and projects</p>
+                        <a href="https://www.figma.com/community/file/1590013934332102853/chennai-bus-tracking-apps-ios" class="figma-link">View Project →</a>
                     </div>
                 </div>
 
                 <div class="figma-project-card">
                     <a href="index.html#skills">
-                        <img src="project3.png"alt="Inpatient Length of Stay Prediction" class="figma-project-image">
+                        <img src="project3.png" alt="Inpatient Length of Stay Prediction" class="figma-project-image">
                     </a>
                     <div class="figma-project-info">
                         <h3 class="figma-project-title">Inpatient Length of Stay Prediction</h3>
@@ -1336,20 +1422,7 @@
                         <a href="index.html#skills" class="figma-link">View Project →</a>
                     </div>
                 </div>
-
-                <div class="figma-project-card">
-                    <a href="index.html#contact">
-                        <img src="project5.png" alt="Library management system" class="figma-project-image">
-                    </a>
-                    <div class="figma-project-info">
-                        <h3 class="figma-project-title">Library management system</h3>
-                        <p class="figma-project-description">Admin dashboard UI design with data visualization and analytics</p>
-                        <a href="index.html#contact" class="figma-link">View Project →</a>
-                    </div>
-                </div>
             </div>
-        </div>
-    </section>
 
     <section id="achievements">
         <div class="container">
